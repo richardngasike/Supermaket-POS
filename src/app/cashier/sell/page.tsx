@@ -852,6 +852,24 @@ export default function SellPage() {
                   </div>
                 </div>
               </div>
+
+              {/* Universal Close Button */}
+                <button
+                  onClick={() => setCompletedSale(null)} // closes the modal
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    color: 'var(--text-secondary)',
+                    fontSize: 20,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: 4,
+                  }}
+                >
+                  <FiX size={20} />
+                </button>
               {receiptMode === 'view' && (
                 <button
                   onClick={() => setReceiptMode(null)}
@@ -889,7 +907,7 @@ export default function SellPage() {
                   {/* Sale summary */}
                   <div style={{ background: 'var(--bg-secondary)', borderRadius: 8, padding: 14, marginBottom: 14 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>
-                      <span style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Total Amount</span>
+                      <span style={{ fontSize: 20, color: 'var(--text-secondary)' }}>Total Amount</span>
                       <span style={{ fontFamily: 'monospace', fontWeight: 800, color: 'var(--danger)', fontSize: 20 }}>
                         {formatKES(completedSale.total_amount)}
                       </span>
@@ -902,8 +920,8 @@ export default function SellPage() {
                     </div>
                     {completedSale.payment_method === 'cash' && (completedSale.change_amount ?? 0) > 0 && (
                       <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: 8, borderTop: '1px solid var(--border)', marginBottom: 8 }}>
-                        <span style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Change</span>
-                        <span style={{ fontFamily: 'monospace', fontWeight: 700, color: 'var(--success)' }}>
+                        <span style={{ fontSize: 25, color: 'var(--text-secondary)' }}>Change</span>
+                        <span style={{ fontSize: 25, fontFamily: 'monospace', fontWeight: 700, color: 'var(--success)' }}>
                           {formatKES(completedSale.change_amount ?? 0)}
                         </span>
                       </div>
